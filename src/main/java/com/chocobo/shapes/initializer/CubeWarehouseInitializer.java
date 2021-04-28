@@ -18,9 +18,9 @@ public class CubeWarehouseInitializer {
         CubeCalculationService service = new CubeCalculationServiceImpl();
 
         try {
-            double perimeter = service.findPerimeter(cube);
-            double area = service.findArea(cube);
-            double volume = service.findVolume(cube);
+            double perimeter = service.calculatePerimeter(cube);
+            double area = service.calculateArea(cube);
+            double volume = service.calculateVolume(cube);
             warehouse.put(cube.getCubeId(), perimeter, area, volume);
         } catch (ShapeException e) {
             logger.error("An attempt to fill warehouse with invalid cube: " + cube, e);

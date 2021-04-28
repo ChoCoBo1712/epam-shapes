@@ -2,21 +2,20 @@ package com.chocobo.shapes.validator;
 
 import com.chocobo.shapes.entity.Cube;
 import com.chocobo.shapes.entity.Point;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class CubePointsValidator {
 
-    public static boolean validatePointSet(Point first, Point second) {
-        if (first == null || second == null) {
-            return false;
-        }
+    private static final Logger logger = LogManager.getLogger();
 
-        boolean result = Double.compare(first.getX(), second.getX()) == 0;
-        result &= Double.compare(first.getY(), second.getY()) == 0;
-        result &= Double.compare(first.getZ(), second.getZ()) > 0;
-        return result;
-    }
+    public static boolean isValidCube(Cube cube) {
+        Point first = cube.getFirstPoint();
+        Point second = cube.getSecondPoint();
 
-    public static boolean validateCube(Cube cube) {
-        return validatePointSet(cube.getFirstPoint(), cube.getSecondPoint());
+        boolean isValid = Double.compare(first.getX(), second.getX()) == 0;
+        isValid &= Double.compare(first.getY(), second.getY()) == 0;
+        isValid &= Double.compare(first.getZ(), second.getZ()) > 0;
+        return isValid;
     }
 }

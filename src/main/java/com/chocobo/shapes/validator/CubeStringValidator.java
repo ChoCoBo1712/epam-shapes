@@ -1,6 +1,5 @@
 package com.chocobo.shapes.validator;
 
-import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -16,7 +15,7 @@ public class CubeStringValidator {
         boolean isValid = Arrays.stream(line.split(SPLITTER))
                 .map(String::trim)
                 .allMatch(string -> string.matches(ONE_OR_MORE_DECIMAL_SYMBOLS_REGEX));
-        logger.log(Level.INFO, isValid ? "Read valid cube: " + line : "Read invalid cube: " + line);
+        logger.info(isValid ? "Read valid string: " + line : "Read invalid string: " + line);
         return isValid;
     }
 }

@@ -24,12 +24,12 @@ public class CubeObserverImpl implements CubeObserver {
 
         long cubeId = cube.getCubeId();
         try {
-            double perimeter = calculationService.findPerimeter(cube);
-            double area = calculationService.findArea(cube);
-            double volume = calculationService.findVolume(cube);
+            double perimeter = calculationService.calculatePerimeter(cube);
+            double area = calculationService.calculateArea(cube);
+            double volume = calculationService.calculateVolume(cube);
             warehouse.put(cubeId, perimeter, area, volume);
         } catch (ShapeException e) {
-            logger.error("Warehouse is not updated. Cause: ", e.getCause());
+            logger.error("Warehouse is not updated", e);
         }
     }
 }

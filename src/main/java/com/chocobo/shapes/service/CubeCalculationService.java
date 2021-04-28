@@ -5,7 +5,7 @@ import com.chocobo.shapes.exception.ShapeException;
 
 public interface CubeCalculationService {
 
-    double findPerimeter(Cube cube) throws ShapeException;
-    double findArea(Cube cube) throws ShapeException;
-    double findVolume(Cube cube) throws  ShapeException;
+    double calculatePerimeter(Cube cube) throws ShapeException;
+    double calculateArea(Cube cube) throws ShapeException;
+    double calculateVolume(Cube cube) throws  ShapeException;
 }
