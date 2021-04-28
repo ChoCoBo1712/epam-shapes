@@ -15,7 +15,7 @@ public class CubePointsReader {
         try {
             return Files.lines(Path.of(ClassLoader.getSystemResource(filePath).toURI()))
                     .collect(Collectors.toList());
-        } catch (IOException | URISyntaxException e) {
+        } catch (IOException | URISyntaxException | NullPointerException e) {
             throw new ShapeException(e);
         }
     }

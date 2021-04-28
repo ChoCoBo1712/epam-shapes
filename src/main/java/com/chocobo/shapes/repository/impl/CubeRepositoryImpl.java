@@ -6,6 +6,7 @@ import com.chocobo.shapes.repository.Specification;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -61,6 +62,13 @@ public class CubeRepositoryImpl implements CubeRepository {
     public List<Cube> queryStream(Specification specification) {
         return collection.stream()
                 .filter(specification::specify)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<Cube> sort(Comparator<? super Cube> comparator) {
+        return collection.stream()
+                .sorted(comparator)
                 .collect(Collectors.toList());
     }
 }
