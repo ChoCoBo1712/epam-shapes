@@ -4,12 +4,12 @@ import com.chocobo.shapes.entity.Cube;
 import com.chocobo.shapes.entity.Point;
 import com.chocobo.shapes.repository.Specification;
 
-public class PointsSpecification implements Specification {
+public class PointSetSpecification implements Specification {
 
     private final Point first;
     private final Point second;
 
-    public PointsSpecification(Point first, Point second) {
+    public PointSetSpecification(Point first, Point second) {
         this.first = first;
         this.second = second;
     }
