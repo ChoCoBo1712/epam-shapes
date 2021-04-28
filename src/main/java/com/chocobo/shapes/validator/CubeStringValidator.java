@@ -9,7 +9,7 @@ import java.util.Arrays;
 public class CubeStringValidator {
 
     private static final Logger logger = LogManager.getLogger();
-    private static final String ONE_OR_MORE_DECIMAL_SYMBOLS_REGEX = "[+-]?\\d+";
+    private static final String ONE_OR_MORE_DECIMAL_SYMBOLS_REGEX = "[+-]?\\d+\\.?\\d*";
     public static final String SPLITTER = ",";
 
     static public boolean isValidString(String line) {

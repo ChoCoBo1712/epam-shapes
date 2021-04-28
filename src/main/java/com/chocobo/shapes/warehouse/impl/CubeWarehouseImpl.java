@@ -31,7 +31,7 @@ public class CubeWarehouseImpl implements CubeWarehouse {
             throw new ShapeException("Id is null");
         }
         CubeParameters parameters = map.get(id);
-        return parameters == null ? Optional.empty() : Optional.of(parameters);
+        return parameters != null ? Optional.of(parameters) : Optional.empty();
     }
 
     @Override

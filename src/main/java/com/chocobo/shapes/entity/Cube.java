@@ -1,7 +1,7 @@
 package com.chocobo.shapes.entity;
 
 import com.chocobo.shapes.exception.ShapeException;
-import com.chocobo.shapes.generator.CubeIdGenerator;
+import com.chocobo.shapes.util.CubeIdGenerator;
 import com.chocobo.shapes.observer.CubeEvent;
 import com.chocobo.shapes.observer.CubeObserver;
 import com.chocobo.shapes.observer.Observable;
@@ -117,7 +117,7 @@ public class Cube implements Cloneable, Observable {
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("first point: ").append(firstPoint);
-        stringBuilder.append(", second point: ").append(secondPoint);
+        stringBuilder.append("; second point: ").append(secondPoint);
         stringBuilder.append(";");
         return stringBuilder.toString();
     }

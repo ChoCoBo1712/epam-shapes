@@ -14,7 +14,6 @@ public class Point implements Cloneable {
         this.z = z;
     }
 
-
     public double getX() {
         return x;
     }
@@ -74,7 +73,6 @@ public class Point implements Cloneable {
         stringBuilder.append("x: ").append(x);
         stringBuilder.append(", y: ").append(y);
         stringBuilder.append(", z: ").append(z);
-        stringBuilder.append(";");
         return stringBuilder.toString();
     }
 

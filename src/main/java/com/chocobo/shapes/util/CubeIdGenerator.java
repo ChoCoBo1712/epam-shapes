@@ -1,4 +1,4 @@
-package com.chocobo.shapes.generator;
+package com.chocobo.shapes.util;
 
 public class CubeIdGenerator {
 
