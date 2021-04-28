@@ -1,7 +1,6 @@
 package com.chocobo.shapes.observer.impl;
 
 import com.chocobo.shapes.entity.Cube;
-import com.chocobo.shapes.entity.CubeParameters;
 import com.chocobo.shapes.exception.ShapeException;
 import com.chocobo.shapes.observer.CubeEvent;
 import com.chocobo.shapes.observer.CubeObserver;
@@ -23,13 +22,12 @@ public class CubeObserverImpl implements CubeObserver {
         CubeCalculationService calculationService = new CubeCalculationServiceImpl();
         CubeWarehouse warehouse = CubeWarehouseImpl.getInstance();
 
-        Long cubeId = cube.getCubeId();
+        long cubeId = cube.getCubeId();
         try {
             double perimeter = calculationService.findPerimeter(cube);
             double area = calculationService.findArea(cube);
             double volume = calculationService.findVolume(cube);
-            CubeParameters newParameters = new CubeParameters(perimeter, area, volume);
-            warehouse.put(cubeId, newParameters);
+            warehouse.put(cubeId, perimeter, area, volume);
         } catch (ShapeException e) {
             logger.error("Warehouse is not updated. Cause: ", e.getCause());
         }

@@ -1,12 +1,12 @@
 package com.chocobo.shapes.entity;
 
 import com.chocobo.shapes.exception.ShapeException;
-import com.chocobo.shapes.util.CubeIdGenerator;
 import com.chocobo.shapes.observer.CubeEvent;
+import com.chocobo.shapes.observer.CubeObservable;
 import com.chocobo.shapes.observer.CubeObserver;
-import com.chocobo.shapes.observer.Observable;
+import com.chocobo.shapes.util.CubeIdGenerator;
 
-public class Cube implements Cloneable, Observable {
+public class Cube implements Cloneable, CubeObservable {
 
     private final long cubeId;
     private Point firstPoint;

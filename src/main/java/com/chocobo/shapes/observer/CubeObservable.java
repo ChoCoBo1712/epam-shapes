@@ -1,6 +1,6 @@
 package com.chocobo.shapes.observer;
 
-public interface EllipseObservable {
+public interface CubeObservable {
 
     void attachObserver(CubeObserver observer);
     void detachObserver();

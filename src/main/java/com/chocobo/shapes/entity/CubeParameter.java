@@ -1,16 +1,10 @@
 package com.chocobo.shapes.entity;
 
-public class CubeParameters {
+public class CubeParameter {
 
     private double perimeter;
     private double area;
     private double volume;
-
-    public CubeParameters(double perimeter, double area, double volume) {
-        this.perimeter = perimeter;
-        this.area = area;
-        this.volume = volume;
-    }
 
     public double getPerimeter() {
         return perimeter;
@@ -46,7 +40,7 @@ public class CubeParameters {
             return false;
         }
 
-        CubeParameters parameters = (CubeParameters) object;
+        CubeParameter parameters = (CubeParameter) object;
         boolean result = perimeter == parameters.perimeter;
         result &= area == parameters.area;
         result &= volume == parameters.volume;

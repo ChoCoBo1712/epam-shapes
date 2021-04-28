@@ -15,7 +15,7 @@ public class CubeCalculationServiceImpl implements CubeCalculationService {
         }
 
         if (!CubePointsValidator.validateCube(cube)) {
-            throw new ShapeException("Invalid cube: " + cube.toString());
+            throw new ShapeException("Invalid cube: " + cube);
         }
 
         double edgeLength = findEdgeLength(cube);
@@ -29,7 +29,7 @@ public class CubeCalculationServiceImpl implements CubeCalculationService {
         }
 
         if (!CubePointsValidator.validateCube(cube)) {
-            throw new ShapeException("Invalid cube: " + cube.toString());
+            throw new ShapeException("Invalid cube: " + cube);
         }
 
         double edgeLength = findEdgeLength(cube);
@@ -43,7 +43,7 @@ public class CubeCalculationServiceImpl implements CubeCalculationService {
         }
 
         if (!CubePointsValidator.validateCube(cube)) {
-            throw new ShapeException("Invalid cube: " + cube.toString());
+            throw new ShapeException("Invalid cube: " + cube);
         }
 
         double edgeLength = findEdgeLength(cube);

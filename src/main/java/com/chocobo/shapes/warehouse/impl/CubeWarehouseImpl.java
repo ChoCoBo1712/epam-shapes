@@ -1,7 +1,6 @@
 package com.chocobo.shapes.warehouse.impl;
 
-import com.chocobo.shapes.entity.CubeParameters;
-import com.chocobo.shapes.exception.ShapeException;
+import com.chocobo.shapes.entity.CubeParameter;
 import com.chocobo.shapes.warehouse.CubeWarehouse;
 
 import java.util.HashMap;
@@ -11,7 +10,7 @@ import java.util.Optional;
 public class CubeWarehouseImpl implements CubeWarehouse {
 
     private static CubeWarehouse instance = null;
-    private final Map<Long, CubeParameters> map;
+    private final Map<Long, CubeParameter> map;
 
     private CubeWarehouseImpl() {
         map = new HashMap<>();
@@ -26,33 +25,26 @@ public class CubeWarehouseImpl implements CubeWarehouse {
     }
 
     @Override
-    public Optional<CubeParameters> get(Long id) throws ShapeException {
-        if (id == null) {
-            throw new ShapeException("Id is null");
-        }
-        CubeParameters parameters = map.get(id);
+    public Optional<CubeParameter> get(long id) {
+        CubeParameter parameters = map.get(id);
         return parameters != null ? Optional.of(parameters) : Optional.empty();
     }
 
     @Override
-    public void put(Long id, CubeParameters parameters) throws ShapeException {
-        if (id == null) {
-            throw new ShapeException("Id is null");
-        }
+    public void put(long id, double perimeter, double area, double volume) {
+        CubeParameter parameter = map.containsKey(id)
+                ? map.get(id)
+                : new CubeParameter();
 
-        if (parameters == null) {
-            throw new ShapeException("Cube parameters is null");
-        }
+        parameter.setPerimeter(perimeter);
+        parameter.setArea(area);
+        parameter.setVolume(volume);
 
-        map.put(id, parameters);
+        map.put(id, parameter);
     }
 
     @Override
-    public void remove(Long id) throws ShapeException {
-        if (id == null) {
-            throw new ShapeException("Id is null");
-        }
-
+    public void remove(Long id) {
         map.remove(id);
     }
 }

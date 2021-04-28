@@ -4,6 +4,7 @@ import com.chocobo.shapes.entity.Cube;
 import com.chocobo.shapes.repository.Specification;
 
 public class CubeIdSpecification implements Specification {
+
     private final long cubeId;
 
     public CubeIdSpecification(long cubeId) {

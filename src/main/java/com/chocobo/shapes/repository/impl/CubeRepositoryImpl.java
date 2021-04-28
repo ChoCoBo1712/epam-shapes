@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class CubeRepositoryImpl implements CubeRepository {
+
     private static CubeRepository instance = null;
     private final List<Cube> collection;
 

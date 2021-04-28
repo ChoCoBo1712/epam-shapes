@@ -5,7 +5,7 @@ import com.chocobo.shapes.entity.Point;
 
 public class CubePointsValidator {
 
-    public static boolean validatePoints(Point first, Point second) {
+    public static boolean validatePointSet(Point first, Point second) {
         if (first == null || second == null) {
             return false;
         }
@@ -17,6 +17,6 @@ public class CubePointsValidator {
     }
 
     public static boolean validateCube(Cube cube) {
-        return validatePoints(cube.getFirstPoint(), cube.getSecondPoint());
+        return validatePointSet(cube.getFirstPoint(), cube.getSecondPoint());
     }
 }
