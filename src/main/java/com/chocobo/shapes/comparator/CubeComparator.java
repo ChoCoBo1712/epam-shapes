@@ -30,6 +30,14 @@ public enum CubeComparator implements Comparator<Cube> {
             return Double.compare(firstY, secondY);
         }
     },
+    FIRST_POINT_Z {
+        @Override
+        public int compare(Cube firstCube, Cube secondCube) {
+            double firstZ = firstCube.getFirstPoint().getZ();
+            double secondZ = secondCube.getFirstPoint().getZ();
+            return Double.compare(firstZ, secondZ);
+        }
+    },
     SECOND_POINT_X {
         @Override
         public int compare(Cube firstCube, Cube secondCube) {
@@ -45,5 +53,13 @@ public enum CubeComparator implements Comparator<Cube> {
             double secondY = secondCube.getSecondPoint().getY();
             return Double.compare(firstY, secondY);
         }
-    }
+    },
+    SECOND_POINT_Z {
+        @Override
+        public int compare(Cube firstCube, Cube secondCube) {
+            double firstZ = firstCube.getSecondPoint().getZ();
+            double secondZ = secondCube.getSecondPoint().getZ();
+            return Double.compare(firstZ, secondZ);
+        }
+    },
 }
