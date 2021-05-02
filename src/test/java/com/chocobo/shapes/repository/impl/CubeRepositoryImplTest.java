@@ -43,7 +43,9 @@ public class CubeRepositoryImplTest {
     public Object[][] specificationProvider() {
         return new Object[][] {
                 { new CubeIdSpecification(13), new Cube[] { cube1 } },
-                { new CubeIdSpecification(15), new Cube[] { cube3 }},
+                { new CubeIdSpecification(15), new Cube[] { cube3 } },
+                { new CubeEdgeSizeSpecification(5), new Cube[] { cube2, cube3 } },
+                { new CubeEdgeSizeSpecification(30), new Cube[] { cube2 } },
                 { new PointSetSpecification(new Point(20, 20, 100), new Point(20, 20, 50)),
                         new Cube[] { cube2 } },
                 { new PointSetSpecification(new Point(230, -20, 1), new Point(230, -20, 0.5)),
