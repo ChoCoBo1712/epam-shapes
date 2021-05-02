@@ -12,6 +12,7 @@ public interface CubeRepository {
     boolean remove(Cube item);
     boolean addAll(Collection<? extends Cube> items);
     boolean removeAll(Collection<? extends Cube> items);
+    void clear();
     List<Cube> query(Specification specification);
     List<Cube> queryStream(Specification specification);
     List<Cube> sort(Comparator<? super Cube> comparator);

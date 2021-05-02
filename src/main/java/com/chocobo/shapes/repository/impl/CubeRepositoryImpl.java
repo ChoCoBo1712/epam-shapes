@@ -48,6 +48,11 @@ public class CubeRepositoryImpl implements CubeRepository {
     }
 
     @Override
+    public void clear() {
+        collection.clear();
+    }
+
+    @Override
     public List<Cube> query(Specification specification) {
         List<Cube> queryResult = new ArrayList<>();
         for (Cube cube : collection) {
