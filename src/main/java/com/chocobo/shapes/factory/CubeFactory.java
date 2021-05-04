@@ -21,7 +21,7 @@ public class CubeFactory {
         }
         Point first = points[0];
         Point second = points[1];
-        return new Cube(first, second);
+        return createCube(first, second);
     }
 
     public static Cube createCube(double[] array) throws ShapeException {
@@ -32,5 +32,5 @@ public class CubeFactory {
         Point second = new Point(array[3], array[4], array[5]);
         return createCube(first, second);
     }
-
+    // TODO: 03.05.2021 add validation 
 }
