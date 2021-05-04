@@ -7,6 +7,7 @@ import com.chocobo.shapes.exception.ShapeException;
 import com.chocobo.shapes.factory.CubeFactory;
 import com.chocobo.shapes.initializer.CubeRepositoryInitializer;
 import com.chocobo.shapes.initializer.CubeWarehouseInitializer;
+import com.chocobo.shapes.observer.CubeObserver;
 import com.chocobo.shapes.observer.impl.CubeObserverImpl;
 import com.chocobo.shapes.parser.CubePointsParser;
 import com.chocobo.shapes.reader.CubePointsReader;
@@ -40,8 +41,8 @@ public class Main {
                     .collect(Collectors.toList());
             for (double[] pointsArray : pointsArrays) {
                 Cube cube = CubeFactory.createCube(pointsArray);
-                cube.attachObserver(new CubeObserverImpl());
-                repositoryInitializer.fillRepositoryWithCube(cube);
+                CubeObserver observer = new CubeObserverImpl();
+                repositoryInitializer.fillRepositoryWithCube(cube, observer);
                 warehouseInitializer.fillWarehouseWithCube(cube);
             }
 
