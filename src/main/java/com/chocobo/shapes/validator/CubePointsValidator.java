@@ -16,6 +16,7 @@ public class CubePointsValidator {
         boolean isValid = Double.compare(first.getX(), second.getX()) == 0;
         isValid &= Double.compare(first.getY(), second.getY()) == 0;
         isValid &= Double.compare(first.getZ(), second.getZ()) > 0;
+        logger.info(isValid ? "Cube is valid: " + cube : "Cube is invalid: " + cube);
         return isValid;
     }
 }
