@@ -22,12 +22,11 @@ public class CubeObserverImpl implements CubeObserver {
         CubeCalculationService calculationService = new CubeCalculationServiceImpl();
         CubeWarehouse warehouse = CubeWarehouseImpl.getInstance();
 
-        long cubeId = cube.getCubeId();
         try {
             double perimeter = calculationService.calculatePerimeter(cube);
             double area = calculationService.calculateArea(cube);
             double volume = calculationService.calculateVolume(cube);
-            warehouse.put(cubeId, perimeter, area, volume);
+            warehouse.put(cube.getCubeId(), perimeter, area, volume);
         } catch (ShapeException e) {
             logger.error("Warehouse is not updated", e);
         }
