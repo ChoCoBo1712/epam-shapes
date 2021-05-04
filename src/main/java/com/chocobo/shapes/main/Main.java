@@ -40,10 +40,11 @@ public class Main {
                     .map(parser::parse)
                     .collect(Collectors.toList());
             for (double[] pointsArray : pointsArrays) {
-                Cube cube = CubeFactory.createCube(pointsArray);
+                Cube cube = CubeFactory.createCube(pointsArray[0], pointsArray[1], pointsArray[2],
+                        pointsArray[3], pointsArray[4], pointsArray[5]);
                 CubeObserver observer = new CubeObserverImpl();
-                repositoryInitializer.fillRepositoryWithCube(cube, observer);
-                warehouseInitializer.fillWarehouseWithCube(cube);
+                repositoryInitializer.addCubeToRepository(cube, observer);
+                warehouseInitializer.addCubeToWarehouse(cube);
             }
 
             CubeRepository repository = CubeRepositoryImpl.getInstance();

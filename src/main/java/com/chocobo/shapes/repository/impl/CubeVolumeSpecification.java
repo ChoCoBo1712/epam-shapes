@@ -30,6 +30,7 @@ public class CubeVolumeSpecification implements Specification {
         double volume = warehouse.get(cube.getCubeId())
                 .map(CubeParameter::getVolume)
                 .orElseGet(() -> {
+                    logger.warn("Volume was not in warehouse for " + cube);
                     CubeCalculationService service = new CubeCalculationServiceImpl();
                     try {
                         return service.calculateVolume(cube);

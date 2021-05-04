@@ -1,6 +1,11 @@
 package com.chocobo.shapes.entity;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class CubeParameter implements Cloneable {
+
+    private static final Logger logger = LogManager.getLogger();
 
     private double perimeter;
     private double area;
@@ -75,7 +80,7 @@ public class CubeParameter implements Cloneable {
         try {
             parameter = (CubeParameter) super.clone();
         } catch (CloneNotSupportedException e) {
-            e.printStackTrace();
+            logger.error("Clone is not supported for CubeParameter", e);
         }
         return parameter;
     }

@@ -1,6 +1,11 @@
 package com.chocobo.shapes.entity;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class Point implements Cloneable {
+
+    private static final Logger logger = LogManager.getLogger();
 
     private double x;
     private double y;
@@ -81,7 +86,7 @@ public class Point implements Cloneable {
         try {
             point = (Point) super.clone();
         } catch (CloneNotSupportedException e) {
-            e.printStackTrace();
+            logger.error("Clone is not supported for Point", e);
         }
         return point;
     }

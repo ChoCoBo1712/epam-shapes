@@ -13,7 +13,7 @@ public class CubeWarehouseInitializer {
 
     private static final Logger logger = LogManager.getLogger();
 
-    public void fillWarehouseWithCube(Cube cube) {
+    public void addCubeToWarehouse(Cube cube) {
         CubeWarehouse warehouse = CubeWarehouseImpl.getInstance();
         CubeCalculationService service = new CubeCalculationServiceImpl();
 

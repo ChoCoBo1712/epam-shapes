@@ -18,13 +18,13 @@ public class CubeObserverImplTest {
         Cube cube = new Cube(new Point(1, 1, 4), new Point(1, 1, 1));
         CubeRepositoryInitializer repositoryInitializer = new CubeRepositoryInitializer();
         CubeWarehouseInitializer warehouseInitializer = new CubeWarehouseInitializer();
-        repositoryInitializer.fillRepositoryWithCube(cube, new CubeObserverImpl());
-        warehouseInitializer.fillWarehouseWithCube(cube);
+        repositoryInitializer.addCubeToRepository(cube, new CubeObserverImpl());
+        warehouseInitializer.addCubeToWarehouse(cube);
         CubeWarehouse warehouse = CubeWarehouseImpl.getInstance();
 
         CubeParameter oldParameter = warehouse.get(cube.getCubeId()).orElse(new CubeParameter()).clone();
         cube.setSecondPoint(new Point(1, 1, 2));
-        CubeParameter newParameter = warehouse.get(cube.getCubeId()).orElse(new CubeParameter()).clone();
+        CubeParameter newParameter = warehouse.get(cube.getCubeId()).orElse(new CubeParameter());
         Assert.assertNotEquals(oldParameter, newParameter);
     }
 }

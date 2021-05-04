@@ -38,11 +38,11 @@ public class CubeRepositoryImplTest {
         cube3 = new Cube(new Point(3.4, 1123, 0), new Point(3.4, 1123, -9));
         cube4 = new Cube(new Point(230, -20, 1), new Point(230, -20, 0.5));
 
-        repositoryInitializer.fillRepositoryWithCube(cube1, new CubeObserverImpl());
-        warehouseInitializer.fillWarehouseWithCube(cube1);
-        repositoryInitializer.fillRepositoryWithCube(cube2, new CubeObserverImpl());
-        repositoryInitializer.fillRepositoryWithCube(cube3, new CubeObserverImpl());
-        repositoryInitializer.fillRepositoryWithCube(cube4, new CubeObserverImpl());
+        repositoryInitializer.addCubeToRepository(cube1, new CubeObserverImpl());
+        warehouseInitializer.addCubeToWarehouse(cube1);
+        repositoryInitializer.addCubeToRepository(cube2, new CubeObserverImpl());
+        repositoryInitializer.addCubeToRepository(cube3, new CubeObserverImpl());
+        repositoryInitializer.addCubeToRepository(cube4, new CubeObserverImpl());
     }
 
     @DataProvider(name = "specification-provider")

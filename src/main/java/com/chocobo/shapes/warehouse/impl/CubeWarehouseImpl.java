@@ -32,10 +32,7 @@ public class CubeWarehouseImpl implements CubeWarehouse {
 
     @Override
     public void put(long id, double perimeter, double area, double volume) {
-        CubeParameter parameter = map.containsKey(id)
-                ? map.get(id)
-                : new CubeParameter();
-
+        CubeParameter parameter = map.getOrDefault(id, new CubeParameter());
         parameter.setPerimeter(perimeter);
         parameter.setArea(area);
         parameter.setVolume(volume);

@@ -30,6 +30,7 @@ public class CubeAreaSpecification implements Specification {
         double area = warehouse.get(cube.getCubeId())
                 .map(CubeParameter::getArea)
                 .orElseGet(() -> {
+                    logger.warn("Area was not in warehouse for " + cube);
                     CubeCalculationService service = new CubeCalculationServiceImpl();
                     try {
                         return service.calculateArea(cube);

@@ -30,6 +30,7 @@ public class CubePerimeterSpecification implements Specification {
         double perimeter = warehouse.get(cube.getCubeId())
                 .map(CubeParameter::getPerimeter)
                 .orElseGet(() -> {
+                    logger.warn("Perimeter was not in warehouse for " + cube);
                     CubeCalculationService service = new CubeCalculationServiceImpl();
                     try {
                         return service.calculatePerimeter(cube);

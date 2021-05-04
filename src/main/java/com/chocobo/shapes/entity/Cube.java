@@ -5,8 +5,12 @@ import com.chocobo.shapes.observer.CubeEvent;
 import com.chocobo.shapes.observer.CubeObservable;
 import com.chocobo.shapes.observer.CubeObserver;
 import com.chocobo.shapes.util.CubeIdGenerator;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class Cube implements Cloneable, CubeObservable {
+
+    private static final Logger logger = LogManager.getLogger();
 
     private final long cubeId;
     private Point firstPoint;
@@ -29,7 +33,7 @@ public class Cube implements Cloneable, CubeObservable {
     }
 
     public Point getFirstPoint() {
-        return firstPoint;
+        return firstPoint.clone();
     }
 
     public void setFirstPoint(Point firstPoint) throws ShapeException {
@@ -42,7 +46,7 @@ public class Cube implements Cloneable, CubeObservable {
     }
 
     public Point getSecondPoint() {
-        return secondPoint;
+        return secondPoint.clone();
     }
 
     public void setSecondPoint(Point secondPoint) throws ShapeException {
@@ -52,20 +56,6 @@ public class Cube implements Cloneable, CubeObservable {
 
         this.secondPoint = secondPoint;
         notifyObserver();
-    }
-
-    public boolean contentEquals(Cube cube) {
-        if (cube == this) {
-            return true;
-        }
-
-        if (cube == null) {
-            return false;
-        }
-
-        boolean result = firstPoint.equals(cube.firstPoint);
-        result &= secondPoint.equals(cube.secondPoint);
-        return result;
     }
 
     @Override
@@ -129,7 +119,7 @@ public class Cube implements Cloneable, CubeObservable {
         try {
             cube = (Cube) super.clone();
         } catch (CloneNotSupportedException e) {
-            e.printStackTrace();
+            logger.error("Clone is not supported for Cube", e);
         }
         return cube;
     }
