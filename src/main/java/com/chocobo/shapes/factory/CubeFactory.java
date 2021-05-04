@@ -7,8 +7,6 @@ import com.chocobo.shapes.validator.CubePointsValidator;
 
 public class CubeFactory {
 
-    public static final int ARRAY_LENGTH = 6;
-
     private CubeFactory() { }
 
     public static Cube createCube(Point first, Point second) throws ShapeException {
