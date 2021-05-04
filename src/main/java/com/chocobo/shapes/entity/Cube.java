@@ -115,9 +115,10 @@ public class Cube implements Cloneable, CubeObservable {
 
     @Override
     public String toString() {
-        StringBuilder stringBuilder = new StringBuilder("Cube: [");
-        stringBuilder.append("first point: ").append(firstPoint);
-        stringBuilder.append("; second point: ").append(secondPoint);
+        StringBuilder stringBuilder = new StringBuilder("Cube: ");
+        stringBuilder.append("cubeId = ").append(cubeId);
+        stringBuilder.append(", [first point: ").append(firstPoint);
+        stringBuilder.append(", second point: ").append(secondPoint);
         stringBuilder.append("]");
         return stringBuilder.toString();
     }

@@ -29,6 +29,7 @@ public class CubeRepositoryImplTest {
     @BeforeClass
     public void setUp() throws ShapeException {
         repository = CubeRepositoryImpl.getInstance();
+        repository.clear();
         CubeRepositoryInitializer repositoryInitializer = new CubeRepositoryInitializer();
         CubeWarehouseInitializer warehouseInitializer = new CubeWarehouseInitializer();
 
@@ -47,8 +48,8 @@ public class CubeRepositoryImplTest {
     @DataProvider(name = "specification-provider")
     public Object[][] specificationProvider() {
         return new Object[][] {
-                { new CubeIdSpecification(13), new Cube[] { cube1 } },
-                { new CubeIdSpecification(15), new Cube[] { cube3 } },
+                { new CubeIdSpecification(14), new Cube[] { cube1 } },
+                { new CubeIdSpecification(16), new Cube[] { cube3 } },
                 { new CubeEdgeSizeSpecification(5), new Cube[] { cube2, cube3 } },
                 { new CubeEdgeSizeSpecification(30), new Cube[] { cube2 } },
                 { new CubePointSetSpecification(new Point(20, 20, 100), new Point(20, 20, 50)),

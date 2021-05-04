@@ -1,6 +1,6 @@
 package com.chocobo.shapes.entity;
 
-public class CubeParameter {
+public class CubeParameter implements Cloneable {
 
     private double perimeter;
     private double area;
@@ -67,5 +67,16 @@ public class CubeParameter {
         stringBuilder.append(", volume: ").append(volume);
         stringBuilder.append(";");
         return stringBuilder.toString();
+    }
+
+    @Override
+    public CubeParameter clone() {
+        CubeParameter parameter = null;
+        try {
+            parameter = (CubeParameter) super.clone();
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+        return parameter;
     }
 }
