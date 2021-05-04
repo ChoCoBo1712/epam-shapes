@@ -3,6 +3,7 @@ package com.chocobo.shapes.factory;
 import com.chocobo.shapes.entity.Cube;
 import com.chocobo.shapes.entity.Point;
 import com.chocobo.shapes.exception.ShapeException;
+import com.chocobo.shapes.validator.CubePointsValidator;
 
 public class CubeFactory {
 
@@ -12,7 +13,11 @@ public class CubeFactory {
     private CubeFactory() { }
 
     public static Cube createCube(Point first, Point second) throws ShapeException {
-        return new Cube(first, second);
+        Cube cube = new Cube(first, second);
+        if (!CubePointsValidator.isValidCube(cube)) {
+            throw new ShapeException("Invalid cube: " + cube);
+        }
+        return cube;
     }
 
     public static Cube createCube(Point[] points) throws ShapeException {
@@ -32,5 +37,4 @@ public class CubeFactory {
         Point second = new Point(array[3], array[4], array[5]);
         return createCube(first, second);
     }
-    // TODO: 03.05.2021 add validation 
 }
