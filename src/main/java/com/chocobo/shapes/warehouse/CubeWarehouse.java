@@ -6,7 +6,7 @@ import com.chocobo.shapes.exception.ShapeException;
 import java.util.Optional;
 
 public interface CubeWarehouse {
-    Optional<CubeParameter> get(long id) throws ShapeException;
-    void put(long id, double perimeter, double area, double volume) throws ShapeException;
+    Optional<CubeParameter> get(long id);
+    void put(long id, double perimeter, double area, double volume);
     void remove(Long id) throws ShapeException;
 }
