@@ -4,6 +4,9 @@ import com.chocobo.shapes.comparator.CubeComparator;
 import com.chocobo.shapes.entity.Cube;
 import com.chocobo.shapes.entity.Point;
 import com.chocobo.shapes.exception.ShapeException;
+import com.chocobo.shapes.initializer.CubeRepositoryInitializer;
+import com.chocobo.shapes.initializer.CubeWarehouseInitializer;
+import com.chocobo.shapes.observer.impl.CubeObserverImpl;
 import com.chocobo.shapes.repository.CubeRepository;
 import com.chocobo.shapes.repository.Specification;
 import org.testng.Assert;
@@ -26,17 +29,19 @@ public class CubeRepositoryImplTest {
     @BeforeClass
     public void setUp() throws ShapeException {
         repository = CubeRepositoryImpl.getInstance();
-        repository.clear();
+        CubeRepositoryInitializer repositoryInitializer = new CubeRepositoryInitializer();
+        CubeWarehouseInitializer warehouseInitializer = new CubeWarehouseInitializer();
 
         cube1 = new Cube(new Point(1, 1, 4), new Point(1, 1, 1));
         cube2 = new Cube(new Point(20, 20, 100), new Point(20, 20, 50));
         cube3 = new Cube(new Point(3.4, 1123, 0), new Point(3.4, 1123, -9));
         cube4 = new Cube(new Point(230, -20, 1), new Point(230, -20, 0.5));
 
-        repository.add(cube1);
-        repository.add(cube2);
-        repository.add(cube3);
-        repository.add(cube4);
+        repositoryInitializer.fillRepositoryWithCube(cube1, new CubeObserverImpl());
+        warehouseInitializer.fillWarehouseWithCube(cube1);
+        repositoryInitializer.fillRepositoryWithCube(cube2, new CubeObserverImpl());
+        repositoryInitializer.fillRepositoryWithCube(cube3, new CubeObserverImpl());
+        repositoryInitializer.fillRepositoryWithCube(cube4, new CubeObserverImpl());
     }
 
     @DataProvider(name = "specification-provider")
@@ -46,10 +51,16 @@ public class CubeRepositoryImplTest {
                 { new CubeIdSpecification(15), new Cube[] { cube3 } },
                 { new CubeEdgeSizeSpecification(5), new Cube[] { cube2, cube3 } },
                 { new CubeEdgeSizeSpecification(30), new Cube[] { cube2 } },
-                { new PointSetSpecification(new Point(20, 20, 100), new Point(20, 20, 50)),
+                { new CubePointSetSpecification(new Point(20, 20, 100), new Point(20, 20, 50)),
                         new Cube[] { cube2 } },
-                { new PointSetSpecification(new Point(230, -20, 1), new Point(230, -20, 0.5)),
-                        new Cube[] { cube4 } }
+                { new CubePointSetSpecification(new Point(230, -20, 1), new Point(230, -20, 0.5)),
+                        new Cube[] { cube4 } },
+                { new CubePerimeterSpecification(36), new Cube[] { cube1 } },
+                { new CubePerimeterSpecification(600), new Cube[] { cube2 } },
+                { new CubeAreaSpecification(Math.pow(3, 2) * 6), new Cube[] { cube1 } },
+                { new CubeAreaSpecification(Math.pow(50, 2) * 6), new Cube[] { cube2 } },
+                { new CubeVolumeSpecification(Math.pow(3, 3)), new Cube[] { cube1 } },
+                { new CubeVolumeSpecification(Math.pow(50, 3)), new Cube[] { cube2 } }
         };
     }
 
